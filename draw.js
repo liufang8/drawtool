@@ -36,7 +36,8 @@
     var tools = document.querySelector('.tool-bar');
 
     tools.addEventListener('click', doOperation, false);
-    text.addEventListener('input', drawTextEvent, false);
+    text.addEventListener('input', TextInputEvent, false);
+    text.addEventListener('change', TextChangeEvent, false);
     cvs.addEventListener('click', clickEvent, false);
     cvs.addEventListener('mousedown', eventDown, false);
     cvs.addEventListener('mousemove', eventMove, false);
@@ -211,7 +212,7 @@ function clickEvent() {
     text.value = '';
   }
 
-  function drawTextEvent() {
+  function TextInputEvent() {
     var e = event || window.event,
         v = text.value.substr(-1, 1), //取最后一个字母
         w = parseInt(ctx.measureText(v).width + 1); //字符间距大些
@@ -232,6 +233,10 @@ function clickEvent() {
     } else {
       text.style.left = parseInt(text.style.left) + w + 'px';
     }
+  }
+
+  function TextChangeEvent() {
+    
   }
 
   // move

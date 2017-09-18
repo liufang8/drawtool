@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>draw</title>
+  <script src="draw.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: rgba(0,0,0, .25);
+    }
+    canvas {
+      background: #fff;
+    }
+    .tool-bar {
+      float: left;
+      width: 3%;
+      margin-top: 3%;
+      margin-right: 10%;
+    }
+    .tool-bar ul {
+      list-style-type: none;
+      text-align: center;
+    }
+    .tool-bar li {
+      margin-top: 10px;
+    }
+
+    .tool-bar img {
+      box-shadow: 0 1px 5px;
+      border-radius: 50%;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .tool-bar img.selected {
+      box-shadow: 0 0 0;
+    }
+
+    .wrap {
+      position: relative;
+      display: inline-block;
+      margin-top: 3%;
+    }
+    textarea {
+      position: absolute;
+      display: none;
+      top: 0;
+      left: 0;
+      width: 1px;
+      letter-spacing: 2px;
+      padding: 0;
+      border: none;
+      outline: none;
+      resize: none; /*隐藏拖动 */
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="tool-bar">
+    <ul>
+      <li><img src="" alt="移动" class="move"></li>
+      <li><img src="" alt="填充" class="fill"></li>
+      <li><img src="" alt="文字" class="text"></li>
+      <li><img src="" alt="圆" class="circle"></li>
+      <li><img src="" alt="矩形" class="rect"></li>
+      <li><img src="" alt="直线" class="line"></li>
+      <li><img src="" alt="曲线" class="curve"></li>
+      <li><img src="" alt="清除" class="clear"></li>
+    </ul>
+  </div>
+  <div class="wrap">
+    <canvas></canvas>
+    <textarea name="text" id="text" cols="1" rows="1"></textarea>
+  </div>
+</body>
+</html>
+
+<!-- context.beginPath();  // 会将之前的路径清空 -->
